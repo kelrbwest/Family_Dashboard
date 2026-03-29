@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Timeline — {{ year }}{% endblock %}
+
+{% block content %}
+<h2 class="fw-bold mb-4"><i class="bi bi-clock-history me-2 text-primary"></i>Family Timeline</h2>
+
+<!-- Year selector -->
+<div class="card shadow-sm mb-4">
+  <div class="card-body">
+    <form method="get" action="/timeline" class="d-flex flex-wrap align-items-center gap-3">
+      <label class="fw-semibold">Pick a year:</label>
+      <input type="range" id="yearSlider" name="year" min="{{ min_year }}" max="{{ max_year }}"
+             value="{{ year }}" class="form-range flex-grow-1" style="min-width:160px;"
+             oninput="document.getElementById('yearInput').value=this.value">
+      <input type="number" id="yearInput" min="{{ min_year }}" max="{{ max_year }}"
+             value="{{ year }}" class="form-control text-center fw-bold fs-5"
+             style="width:90px;"
+             oninput="document.getElementById('yearSlider').value=this.value">
+      <button type="submit" class="btn btn-primary px-4">Go</button>
+    </form>
+  </div>
+</div>
+
+<!-- Age grid for selected year -->
+<h5 class="text-muted mb-3">
+  {% if year == current_year %}Family ages right now
+  {% elif year < current_year %}Family ages in {{ year }}
+  {% else %}Family ages in {{ year }} <span class="badge bg-secondary ms-1">projected</span>
+  {% endif %}
+</h5>
+
+<div class="row g-4 mb-4">
+  {% for family in families %}
+  <div class="col-12 col-md-6 col-xl-3">
+    <div class="card h-100 shadow-sm border-top border-4 border-{{ family.accent_color }}">
+      <div class="card-header bg-white py-2">
+        <span class="badge bg-{{ family.accent_color }} fs-6">{{ family.family_line }}</span>
+      </div>
+      <div class="card-body p-0">
+        <ul class="list-group list-group-flush">
+          {% for m in family.members %}
+          <li class="list-group-item d-flex align-items-center gap-2 py-2 {% if m.not_born %}text-muted{% endif %}">
+            {% if m.photo_url %}
+              <img src="{{ m.photo_url }}" class="rounded-circle object-fit-cover {% if m.not_born %}opacity-25{% endif %}"
+                   style="width:30px;height:30px;flex-shrink:0;">
+            {% else %}
+              <div class="avatar-initials rounded-circle d-flex align-items-center justify-content-center fw-bold
+                          {% if m.not_born %}bg-secondary{% else %}bg-{{ family.accent_color }}{% endif %} text-white"
+                   style="width:30px;height:30px;font-size:0.65rem;flex-shrink:0;">
+                {{ m.initials }}
+              </div>
+            {% endif %}
+            <span class="{% if m.born_this_year %}fw-bold text-success{% endif %}">{{ m.first_name }}</span>
+            <span class="ms-auto fw-bold">
+              {% if m.not_born %}
+                <span class="badge bg-light text-muted border">not born</span>
+              {% elif m.born_this_year %}
+                <span class="badge bg-success">born!</span>
+              {% else %}
+                {{ m.timeline_age }}
+              {% endif %}
+            </span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- Auto-generated facts -->
+{% if facts %}
+<div class="card shadow-sm border-start border-4 border-info">
+  <div class="card-header bg-white fw-semibold">
+    <i class="bi bi-chat-quote me-2 text-info"></i>Facts about {{ year }}
+  </div>
+  <div class="card-body">
+    <ul class="mb-0 ps-3">
+      {% for fact in facts %}
+      <li class="mb-1">{{ fact }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,48 @@
+/* Family Age Dashboard — style overrides */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.avatar-initials {
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.card {
+  border-radius: 0.6rem;
+}
+
+.navbar-brand {
+  letter-spacing: 0.02em;
+}
+
+/* Muted approximate age display */
+.text-approx {
+  color: #6c757d;
+}
+
+/* Timeline: born-this-year highlight */
+.born-highlight {
+  background-color: #d1e7dd;
+}
+
+/* Accordion section icons */
+.accordion-button:not(.collapsed) {
+  background-color: #f8f9fa;
+  color: #212529;
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+/* Responsive avatar sizes */
+@media (max-width: 576px) {
+  .avatar, .avatar-initials {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.6rem !important;
+  }
+}

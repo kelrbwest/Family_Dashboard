@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Family Ages — Dashboard{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center justify-content-between mb-3">
+  <h2 class="mb-0 fw-bold">Family Ages <span class="text-muted fs-5 fw-normal">— {{ today.strftime('%B %d, %Y') }}</span></h2>
+</div>
+
+{% if approx_count > 0 %}
+<div class="alert alert-info d-flex align-items-center gap-2 py-2 mb-4 small">
+  <i class="bi bi-info-circle-fill"></i>
+  <span>
+    <strong>{{ approx_count }} member{{ 's' if approx_count != 1 }}</strong> show approximate ages (<strong>~</strong>) based on birth year only.
+    {% if exact_count > 0 %}<strong>{{ exact_count }}</strong> show exact ages.{% endif %}
+    Add <code>birth_month</code> and <code>birth_day</code> to <code>family.json</code> to enable exact ages and birthday countdowns.
+  </span>
+</div>
+{% endif %}
+
+<div class="row g-4">
+  {% for family in families %}
+  <div class="col-12 col-md-6 col-xl-3">
+    <div class="card h-100 shadow-sm border-top border-4 border-{{ family.accent_color }}">
+      <div class="card-header bg-white d-flex align-items-center gap-2 py-2">
+        <span class="badge bg-{{ family.accent_color }} fs-6">{{ family.family_line }}</span>
+        <span class="text-muted small">{{ family.members | length }} members</span>
+      </div>
+      <div class="card-body p-0">
+        {% for gen, members in family.by_generation.items() %}
+          {% if not loop.first %}<hr class="my-0 mx-3">{% endif %}
+          <div class="px-3 py-2">
+            <div class="text-uppercase text-muted small fw-semibold mb-2" style="font-size:0.7rem; letter-spacing:0.05em;">
+              {% if gen == 1 %}Grandparent Generation
+              {% elif gen == 2 %}Parent Generation
+              {% else %}Young Generation{% endif %}
+            </div>
+            {% for m in members %}
+            <div class="d-flex align-items-center gap-2 mb-2">
+              {% if m.photo_url %}
+                <img src="{{ m.photo_url }}" alt="{{ m.first_name }}"
+                     class="avatar rounded-circle object-fit-cover"
+                     style="width:36px;height:36px;">
+              {% else %}
+                <div class="avatar-initials bg-{{ family.accent_color }} text-white rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                     style="width:36px;height:36px;font-size:0.7rem;flex-shrink:0;">
+                  {{ m.initials }}
+                </div>
+              {% endif %}
+              <div class="lh-tight">
+                <div class="fw-semibold">{{ m.first_name }}</div>
+                <div class="text-muted small">
+                  b. {{ m.birth_year }}
+                </div>
+              </div>
+              <div class="ms-auto text-end">
+                <span class="fw-bold fs-5{% if not m.age_exact %} text-secondary{% endif %}"
+                      {% if not m.age_exact %}title="Approximate — birth month unknown"{% endif %}>
+                  {{ m.age_display }}
+                </span>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

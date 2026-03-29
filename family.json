@@ -1,0 +1,248 @@
+{
+  "families": [
+    {
+      "family_line": "West",
+      "accent_color": "primary",
+      "members": [
+        {
+          "id": "west_kelli",
+          "name": "Kelli West",
+          "first_name": "Kelli",
+          "birth_year": 1973,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 2,
+          "parent_ids": [],
+          "notes": ""
+        },
+        {
+          "id": "west_kel",
+          "name": "Kel West",
+          "first_name": "Kel",
+          "birth_year": 1973,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 2,
+          "parent_ids": [],
+          "notes": ""
+        },
+        {
+          "id": "west_roy",
+          "name": "Roy West",
+          "first_name": "Roy",
+          "birth_year": 2002,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 3,
+          "parent_ids": ["west_kelli", "west_kel"],
+          "notes": ""
+        },
+        {
+          "id": "west_bennett",
+          "name": "Bennett West",
+          "first_name": "Bennett",
+          "birth_year": 2003,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 3,
+          "parent_ids": ["west_kelli", "west_kel"],
+          "notes": ""
+        },
+        {
+          "id": "west_edward",
+          "name": "Edward West",
+          "first_name": "Edward",
+          "birth_year": 2007,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 3,
+          "parent_ids": ["west_kelli", "west_kel"],
+          "notes": ""
+        },
+        {
+          "id": "west_henry",
+          "name": "Henry West",
+          "first_name": "Henry",
+          "birth_year": 2013,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 3,
+          "parent_ids": ["west_kelli", "west_kel"],
+          "notes": ""
+        },
+        {
+          "id": "west_audrey",
+          "name": "Audrey West",
+          "first_name": "Audrey",
+          "birth_year": 2015,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 3,
+          "parent_ids": ["west_kelli", "west_kel"],
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "family_line": "Shaw",
+      "accent_color": "success",
+      "members": [
+        {
+          "id": "shaw_erin",
+          "name": "Erin Shaw",
+          "first_name": "Erin",
+          "birth_year": 1952,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 1,
+          "parent_ids": [],
+          "notes": ""
+        },
+        {
+          "id": "shaw_annemarie",
+          "name": "Annemarie Shaw",
+          "first_name": "Annemarie",
+          "birth_year": 1955,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 1,
+          "parent_ids": [],
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "family_line": "White",
+      "accent_color": "warning",
+      "members": [
+        {
+          "id": "white_scott",
+          "name": "Scott White",
+          "first_name": "Scott",
+          "birth_year": 1971,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 2,
+          "parent_ids": [],
+          "notes": ""
+        },
+        {
+          "id": "white_sharyn",
+          "name": "Sharyn White",
+          "first_name": "Sharyn",
+          "birth_year": 1977,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 2,
+          "parent_ids": [],
+          "notes": ""
+        },
+        {
+          "id": "white_harrison",
+          "name": "Harrison White",
+          "first_name": "Harrison",
+          "birth_year": 2001,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 3,
+          "parent_ids": ["white_scott", "white_sharyn"],
+          "notes": ""
+        },
+        {
+          "id": "white_riley",
+          "name": "Riley White",
+          "first_name": "Riley",
+          "birth_year": 2002,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 3,
+          "parent_ids": ["white_scott", "white_sharyn"],
+          "notes": ""
+        },
+        {
+          "id": "white_alexandra",
+          "name": "Alexandra White",
+          "first_name": "Alexandra",
+          "birth_year": 2005,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 3,
+          "parent_ids": ["white_scott", "white_sharyn"],
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "family_line": "Hopper",
+      "accent_color": "danger",
+      "members": [
+        {
+          "id": "hopper_paul",
+          "name": "Paul Hopper",
+          "first_name": "Paul",
+          "birth_year": 1973,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 2,
+          "parent_ids": [],
+          "notes": ""
+        },
+        {
+          "id": "hopper_melanie",
+          "name": "Melanie Hopper",
+          "first_name": "Melanie",
+          "birth_year": 1979,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 2,
+          "parent_ids": [],
+          "notes": ""
+        },
+        {
+          "id": "hopper_thomas",
+          "name": "Thomas Hopper",
+          "first_name": "Thomas",
+          "birth_year": 2005,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 3,
+          "parent_ids": ["hopper_paul", "hopper_melanie"],
+          "notes": ""
+        },
+        {
+          "id": "hopper_jackson",
+          "name": "Jackson Hopper",
+          "first_name": "Jackson",
+          "birth_year": 2007,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 3,
+          "parent_ids": ["hopper_paul", "hopper_melanie"],
+          "notes": ""
+        },
+        {
+          "id": "hopper_evelyn",
+          "name": "Evelyn Hopper",
+          "first_name": "Evelyn",
+          "birth_year": 2012,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 3,
+          "parent_ids": ["hopper_paul", "hopper_melanie"],
+          "notes": ""
+        },
+        {
+          "id": "hopper_levi",
+          "name": "Levi Hopper",
+          "first_name": "Levi",
+          "birth_year": 2015,
+          "birth_month": null,
+          "birth_day": null,
+          "generation": 3,
+          "parent_ids": ["hopper_paul", "hopper_melanie"],
+          "notes": ""
+        }
+      ]
+    }
+  ]
+}

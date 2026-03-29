@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}Family Facts{% endblock %}
+
+{% block content %}
+<h2 class="fw-bold mb-4"><i class="bi bi-heart me-2 text-danger"></i>Family Facts</h2>
+
+<div class="accordion shadow-sm" id="factsAccordion">
+
+  <!-- Superlatives -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#colSuperlatives">
+        <i class="bi bi-trophy me-2 text-warning"></i>Superlatives
+      </button>
+    </h2>
+    <div id="colSuperlatives" class="accordion-collapse collapse show" data-bs-parent="#factsAccordion">
+      <div class="accordion-body">
+        <ul class="mb-0">
+          {% for fact in facts.superlatives %}
+          <li class="mb-2">{{ fact }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Same birth year -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#colSameBirth">
+        <i class="bi bi-calendar2-heart me-2 text-danger"></i>Born the Same Year
+      </button>
+    </h2>
+    <div id="colSameBirth" class="accordion-collapse collapse" data-bs-parent="#factsAccordion">
+      <div class="accordion-body">
+        {% if facts.same_birth_year %}
+        <ul class="mb-0">
+          {% for fact in facts.same_birth_year %}
+          <li class="mb-2">{{ fact }}</li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p class="text-muted mb-0">No family members share the same birth year.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Age gaps -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#colAgeGaps">
+        <i class="bi bi-arrows-expand me-2 text-primary"></i>Age Gaps
+      </button>
+    </h2>
+    <div id="colAgeGaps" class="accordion-collapse collapse" data-bs-parent="#factsAccordion">
+      <div class="accordion-body">
+        <ul class="mb-0">
+          {% for fact in facts.age_gaps %}
+          <li class="mb-2">{{ fact }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Parent ages at birth -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#colParentChild">
+        <i class="bi bi-people me-2 text-success"></i>Parent Ages at Birth
+      </button>
+    </h2>
+    <div id="colParentChild" class="accordion-collapse collapse" data-bs-parent="#factsAccordion">
+      <div class="accordion-body">
+        {% if facts.parent_child %}
+        <ul class="mb-0">
+          {% for fact in facts.parent_child %}
+          <li class="mb-2">{{ fact }}</li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p class="text-muted mb-0">Add <code>parent_ids</code> to <code>family.json</code> to generate parent-child facts.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Generation spans -->
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#colGenSpans">
+        <i class="bi bi-bar-chart-steps me-2 text-info"></i>Generation Spans
+      </button>
+    </h2>
+    <div id="colGenSpans" class="accordion-collapse collapse" data-bs-parent="#factsAccordion">
+      <div class="accordion-body">
+        <ul class="mb-0">
+          {% for fact in facts.generation_spans %}
+          <li class="mb-2">{{ fact }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
